@@ -12,7 +12,7 @@ const TelaPrincipal = (props: PrincipalProps) => {
             <ImageBackground style={styles.tela} source={{uri: 'https://services.meteored.com/img/article/universo-pode-estar-desacelerando-segundo-novas-observacoes-de-galaxias-1712261219743_1280.png'}}>
        
 
-       <ExemploAprovacao nome={"carlos"} nota1={0} nota2={10}/>
+       <ExemploAprovacao nome={"carlos"} nota1={10} nota2={10}/>
        
         </ImageBackground>
         </ScrollView>
