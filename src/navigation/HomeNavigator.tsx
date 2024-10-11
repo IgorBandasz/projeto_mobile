@@ -19,7 +19,10 @@ const HomeNavigator = () => {
             initialRouteName="TelaPrincipal" //nome da tela inicial
             screenOptions={{headerShown: false}} //headerShown define se o cabeçalho irá ser exibido
             > 
-            <Stack.Screen name="TelaPrincipal" component={TelaPrincipal} /* define uma tela dando um nome(igual ao RootStackParamList) e qual o componente será carregado *//>
+
+            {/* define uma tela dando um nome(igual ao RootStackParamList) e qual o componente será carregado */}
+            <Stack.Screen name="TelaPrincipal" component={TelaLogin} />
+            
         </Stack.Navigator>
     );
 }
