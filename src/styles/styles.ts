@@ -44,6 +44,16 @@ const styles = StyleSheet.create({
     imagem_200: {
         width: 200,
         height: 200
+    },
+
+    card:{
+        borderWidth: 2,
+        borderColor: 'black',
+        borderRadius: 15,
+        marginVertical: 5
+    },
+    click: {
+        opacity: 0.5
     }
 });
 
