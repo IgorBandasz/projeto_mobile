@@ -2,7 +2,12 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
 
-
+coisas :{
+     marginTop: "30%",
+     backgroundColor:'#921fd1',
+     padding:10,
+     borderRadius:50
+},
     titulo1: {
 marginTop:50,
        justifyContent: 'center',

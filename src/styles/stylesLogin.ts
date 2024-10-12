@@ -24,7 +24,7 @@ color:'white'
     paddingRight:3,
     alignItems:'center',
     marginTop:30,
-borderRadius:50
+borderRadius:30
 },
     botoes: {
             flexDirection: 'row',
@@ -40,10 +40,10 @@ borderRadius:50
         },
 
     titulo2: {
-marginLeft:"39%",
+
 justifyContent: 'center',
-        marginTop:10,
-        fontSize: 40,
+        marginBottom:"20%",
+        fontSize: 50,
         fontWeight: 'bold',
         color: 'white'
     },
