@@ -6,15 +6,15 @@ import TelaPrincipal from '../layouts/TelaPrincipal';
 import Telalogin from '../layouts/Telalogin';
 import TelaCadastrar from '../layouts/TelaCadastrar';
 import TelaCoisas from '../layouts/TelaCoisas';
-import TelaViews from '../layouts/TelaViews';
+import TelaCoisa from '../layouts/TelaCoisa';
 
 //Define quais as telas e os parâmetros de cada tela
 type RootStackParamList = {
   TelaPrincipal: undefined; //Não possui parâmetros
   TelaLogin: undefined; //Não possui parâmetros
   TelaCadastrar: undefined; //Não possui parâmetros
-  TelaCoisas: undefined; //Não possui parâmetros
-  TelaViews: undefined; //Não possui parâmetros
+  TelaCoisas: {valor: number}; //Não possui parâmetros
+  TelaCoisa: {valor: number}; //Não possui parâmetros
 };
 
 //Cria a Stack (tipo de navegação onde as telas estão em uma "pilha")
@@ -38,7 +38,7 @@ const HomeNavigator = () => {
 
       <Stack.Screen name="TelaCoisas" component={TelaCoisas} />
       
-      <Stack.Screen name="TelaViews" component={TelaViews} />
+      <Stack.Screen name="TelaCoisa" component={TelaCoisa} />
       
     </Stack.Navigator>
   );
@@ -60,13 +60,13 @@ type CoisasProps = NativeStackScreenProps<
   RootStackParamList,
   'TelaCoisas'
 >;
-type ViewsProps = NativeStackScreenProps<
+type CoisaProps = NativeStackScreenProps<
   RootStackParamList,
-  'TelaViews'
+  'TelaCoisa'
 >;
 
 //exporta o navegador da pilha para ficar visível para outros arquivos
 export default HomeNavigator;
 
 //exporta os tipos de dados para ficar visível para outros arquivos
-export type {PrincipalProps, LoginProps, CadastrarProps,CoisasProps,ViewsProps};
+export type {PrincipalProps, LoginProps, CadastrarProps,CoisasProps,CoisaProps};

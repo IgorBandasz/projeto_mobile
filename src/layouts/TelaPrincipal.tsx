@@ -9,12 +9,12 @@ import login from '../components/login';
 const TelaPrincipal = (props: PrincipalProps) => {
 
 function Coisas(){
-    props.navigation.navigate('TelaCoisas');
+    props.navigation.navigate('TelaCoisas',{valor:1});
 }
 
 
     return (
-        <ScrollView>
+        
             <ImageBackground style={styles.tela} source={{uri: 'https://services.meteored.com/img/article/universo-pode-estar-desacelerando-segundo-novas-observacoes-de-galaxias-1712261219743_1280.png'}}>
  
          <Pressable style={{backgroundColor:'#921fd1',padding:10,borderRadius:50}}
@@ -33,7 +33,7 @@ function Coisas(){
 </Pressable>
        
         </ImageBackground>
-        </ScrollView>
+        
     );
 }
 

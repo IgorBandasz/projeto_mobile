@@ -18,10 +18,6 @@ const TelaCadastrar = (props: CadastrarProps) => {
   const[senha,setSenha] = useState('b');
   const[confSenha,setConfSenha] = useState('c');
 
-   function Telacadastrar(){
-    props.navigation.navigate('TelaCadastrar');
-
-   }
    function voltar(){
     props.navigation.navigate('TelaLogin')
    }
@@ -42,7 +38,7 @@ Alert.alert(
 
 
   return (
-    <ScrollView>
+    
     <ImageBackground style={styles.tela} source={{uri: 'https://services.meteored.com/img/article/universo-pode-estar-desacelerando-segundo-novas-observacoes-de-galaxias-1712261219743_1280.png'}}>
     <View>
         <Text style={styles.titulo2}>cadastrar</Text>
@@ -102,8 +98,8 @@ Alert.alert(
 
       </Pressable>
     </View>
+    
     </ImageBackground>
-    </ScrollView>
   );
 };
 export default TelaCadastrar;

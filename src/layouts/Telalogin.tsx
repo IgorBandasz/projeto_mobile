@@ -28,7 +28,7 @@ props.navigation.navigate('TelaPrincipal');
     
        
   return (
-    <ScrollView>
+    
         <ImageBackground style={styles.tela} source={{uri: 'https://services.meteored.com/img/article/universo-pode-estar-desacelerando-segundo-novas-observacoes-de-galaxias-1712261219743_1280.png'}}>
       <View>
         <Text style={styles.titulo2}>login</Text>
@@ -81,7 +81,7 @@ props.navigation.navigate('TelaPrincipal');
  
   
   </ImageBackground>
-    </ScrollView>
+    
   );
         
     
