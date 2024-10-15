@@ -15,6 +15,7 @@ import ExemploState from '../components/ExemploState';
 import { Animal } from '../types/Animal';
 import ListaAnimais from '../components/ListaAnimais';
 import ExemploEvento from '../components/ExemploEvento';
+import ExemploConstrucaoCondicao from '../components/ExemploConstrucaoCondicao';
 
 //Componente chamado TelaPrincipal que recebe 
 //PrincipalProps 
@@ -57,7 +58,11 @@ const TelaPrincipal = (props: PrincipalProps) => {
               <Text style={{fontSize:40}}>Voltar</Text>
             </Pressable>
 
-            <ExemploState/>
+            <Text style={{fontSize:50}}> 
+              {props.route.params.texto}
+            </Text>
+
+            <ExemploConstrucaoCondicao/>
         </View>
     );
 }

@@ -13,7 +13,10 @@ const TelaLogin = (props: LoginProps) => {
       '\nSenha: ' + senha
     )
 
-    props.navigation.navigate('TelaPrincipal');
+    props.navigation.navigate(
+      'TelaPrincipal', 
+      {texto: login}
+    );
   }
 
   return (

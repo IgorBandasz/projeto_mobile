@@ -4,7 +4,7 @@ import TelaLogin from "../layouts/TelaLogin";
 
 //Define quais as telas e os parâmetros de cada tela
 type RootStackParamList = {
-  TelaPrincipal: undefined; //Não possui parâmetros
+  TelaPrincipal: {texto: string}; 
   TelaLogin: undefined;
 };
 
