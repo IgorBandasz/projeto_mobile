@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { PrincipalProps } from '../navigation/HomeNavigator';
 import HelloWorld from '../components/HelloWorld';
 import { styles } from '../styles/styles';
@@ -50,7 +50,12 @@ const TelaPrincipal = (props: PrincipalProps) => {
     return (
         <View
             style={[styles.tela]}>
-            
+
+            <Pressable 
+              style={{backgroundColor: 'green'}}
+              onPress={()=>{props.navigation.goBack()}}>
+              <Text style={{fontSize:40}}>Voltar</Text>
+            </Pressable>
 
             <ExemploState/>
         </View>

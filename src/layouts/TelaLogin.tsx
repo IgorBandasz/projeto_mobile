@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, Pressable, Image, Alert, ImageBackground } from 'react-native';
+import { LoginProps } from '../navigation/HomeNavigator';
 
-const TelaLogin = () => {
+const TelaLogin = (props: LoginProps) => {
   const [login, setLogin] = useState('');
   const [senha, setSenha] = useState('');
 
@@ -11,6 +12,8 @@ const TelaLogin = () => {
       'Login: ' + login +
       '\nSenha: ' + senha
     )
+
+    props.navigation.navigate('TelaPrincipal');
   }
 
   return (
