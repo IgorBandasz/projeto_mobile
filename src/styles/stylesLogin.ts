@@ -4,58 +4,46 @@ const styles = StyleSheet.create({
 
 
     botoesBaixo:{
-        backgroundColor:"black",
+        backgroundColor:'#921fd1',
     paddingTop:4,
    padding:10,
     alignItems:'center',    
-    marginTop:30,
+  
 borderRadius:50,
 
 
     },
     botoesECTxt:{
-fontSize:25, 
+fontSize:30, 
 color:'white'
     },
 
-    botaoCadastrar:{
-        
-        backgroundColor:"black",
-        paddingTop:4,
-       padding:10,
-        alignItems:'center',    
-        marginTop:30,
-    borderRadius:50,
-
-    },
     botaoEntrar:{
-    backgroundColor:"black",
+    backgroundColor:'#921fd1',
     paddingBottom:13,
     paddingRight:3,
     alignItems:'center',
     marginTop:30,
-borderRadius:50
+borderRadius:30
 },
     botoes: {
-        
-        backgroundColor: '#a15ff5',  
             flexDirection: 'row',
             justifyContent: 'space-between', 
-            padding: 20,
+            padding: 0, 
+            marginTop:'78.7%',
+            gap:0
           },
 
         tela: {
-            paddingBottom:'25%',
         flex: 1,
         alignItems:'center',
-        backgroundColor: '#a15ff5'
         },
 
     titulo2: {
-marginLeft:"29%",
+
 justifyContent: 'center',
-        marginTop:10,
-        fontSize: 40,
+        marginBottom:"20%",
+        fontSize: 50,
         fontWeight: 'bold',
         color: 'white'
     },
@@ -78,13 +66,13 @@ backgroundColor:'white',
         borderRadius: 4,
         margin: 3,
         marginTop:0,
-    width:300
+    width:400
     },
 
     
 
     imagem_200: {
-        marginLeft:"14%",
+        marginLeft:"24%",
         borderRadius: 100,
         marginTop:50,
         width: 200,
