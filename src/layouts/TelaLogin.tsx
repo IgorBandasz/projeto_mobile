@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, Pressable, Image, Alert, ImageBackground } from 'react-native';
 import { LoginProps } from '../navigation/HomeNavigator';
+import auth from "@react-native-firebase/auth";
 
 const TelaLogin = (props: LoginProps) => {
   const [login, setLogin] = useState('');
   const [senha, setSenha] = useState('');
 
-  function exibirMensagem(){
+  function exibirMensagem() {
     Alert.alert(
       'Dados',
       'Login: ' + login +
@@ -14,9 +15,19 @@ const TelaLogin = (props: LoginProps) => {
     )
 
     props.navigation.navigate(
-      'TelaPrincipal', 
-      {texto: login}
+      'TelaPrincipal',
+      { texto: login }
     );
+  }
+
+
+
+  function logar() {
+    auth()
+      .signInWithEmailAndPassword(login, senha)
+      .then(() => {
+        props.navigation.navigate('TelaPrincipal', { texto: '' })
+      })
   }
 
   return (
@@ -25,7 +36,7 @@ const TelaLogin = (props: LoginProps) => {
       <View style={styles.painel_imagem}>
         <Image
           style={styles.imagem}
-          source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Logo_of_Twitter.svg/512px-Logo_of_Twitter.svg.png' }} 
+          source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Logo_of_Twitter.svg/512px-Logo_of_Twitter.svg.png' }}
         />
       </View>
 
@@ -36,8 +47,8 @@ const TelaLogin = (props: LoginProps) => {
             Login
           </Text>
           <TextInput
-            style={styles.caixa_texto} 
-            onChangeText={(text) => setLogin(text)}/>
+            style={styles.caixa_texto}
+            onChangeText={(text) => setLogin(text)} />
 
           <Text
             style={styles.titulo_caixa_texto}>
@@ -50,7 +61,7 @@ const TelaLogin = (props: LoginProps) => {
 
           <Pressable
             style={(state) => [styles.botao, state.pressed ? { opacity: 0.5 } : null]}
-            onPress={() => {exibirMensagem()}}
+            onPress={() => { exibirMensagem() }}
           >
             <Text style={styles.desc_botao}>Entrar</Text>
           </Pressable>
@@ -60,6 +71,7 @@ const TelaLogin = (props: LoginProps) => {
           style={{ flex: 0.3, flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center' }}>
           <Pressable
             style={(state) => [styles.botao, state.pressed ? { opacity: 0.5 } : null]}
+            onPress={()=>{props.navigation.navigate('TelaCadUsuario')}}
           >
             <Text style={styles.desc_botao}>Cadastrar-se</Text>
           </Pressable>

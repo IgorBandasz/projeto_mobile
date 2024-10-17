@@ -1,11 +1,17 @@
 import { NativeStackScreenProps, createNativeStackNavigator } from "@react-navigation/native-stack";
 import TelaPrincipal from "../layouts/TelaPrincipal";
 import TelaLogin from "../layouts/TelaLogin";
+import TelaMenuComponentes from "../layouts/TelaMenuComponentes";
+import TelaComponentes from "../layouts/TelaComponentes";
+import TelaCadUsuario from "../layouts/TelaCadUsuario";
 
 //Define quais as telas e os parâmetros de cada tela
 type RootStackParamList = {
   TelaPrincipal: {texto: string}; 
   TelaLogin: undefined;
+  TelaMenuComponentes: undefined;
+  TelaComponentes: {tipoComponente: number};
+  TelaCadUsuario: undefined;
 };
 
 //Cria a Stack (tipo de navegação onde as telas estão em uma "pilha")
@@ -22,8 +28,10 @@ const HomeNavigator = () => {
 
       {/* define uma tela dando um nome(igual ao RootStackParamList) e qual o componente será carregado */}
       <Stack.Screen name="TelaPrincipal" component={TelaPrincipal} />
-
       <Stack.Screen name="TelaLogin" component={TelaLogin}/>
+      <Stack.Screen name="TelaMenuComponentes" component={TelaMenuComponentes}/>
+      <Stack.Screen name="TelaComponentes" component={TelaComponentes}/>
+      <Stack.Screen name="TelaCadUsuario" component={TelaCadUsuario}/>
     </Stack.Navigator>
   );
 }
@@ -34,7 +42,16 @@ type PrincipalProps = NativeStackScreenProps<RootStackParamList,
   'TelaPrincipal'>;
 
 type LoginProps = NativeStackScreenProps<RootStackParamList,
-  'TelaLogin'>;  
+  'TelaLogin'>; 
+  
+type MenuComponentesProps = NativeStackScreenProps<RootStackParamList,
+  'TelaMenuComponentes'>;
+
+type ComponentesProps = NativeStackScreenProps<RootStackParamList,
+  'TelaComponentes'>;  
+
+type CadUsuarioProps = NativeStackScreenProps<RootStackParamList,
+  'TelaCadUsuario'>;   
 
 //exporta o navegador da pilha para ficar visível para outros arquivos    
 export default HomeNavigator;
@@ -42,5 +59,8 @@ export default HomeNavigator;
 //exporta os tipos de dados para ficar visível para outros arquivos
 export type {
   PrincipalProps,
-  LoginProps
+  LoginProps,
+  MenuComponentesProps,
+  ComponentesProps,
+  CadUsuarioProps
 };
