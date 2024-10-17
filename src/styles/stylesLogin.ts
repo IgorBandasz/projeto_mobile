@@ -3,7 +3,8 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
 
 
-    botoesBaixo:{
+    botoesBaixo:{borderBottomStartRadius:1,
+        borderTopEndRadius:1,
         backgroundColor:'#921fd1',
     paddingTop:4,
    padding:10,
@@ -14,17 +15,20 @@ borderRadius:50,
 
     },
     botoesECTxt:{
+        borderBottomStartRadius:1,
+    borderTopEndRadius:1,
 fontSize:30, 
 color:'white'
     },
 
     botaoEntrar:{
     backgroundColor:'#921fd1',
-    paddingBottom:13,
-    paddingRight:3,
     alignItems:'center',
-    marginTop:30,
-borderRadius:30
+    borderBottomStartRadius:1,
+    borderTopEndRadius:1,
+    
+borderRadius:30,
+padding:10
 },
     botoes: {
             flexDirection: 'row',
@@ -49,7 +53,6 @@ justifyContent: 'center',
     },
     titulo1: {
        justifyContent: 'center',
-        marginTop:10,
         fontSize: 40,
         fontWeight: 'bold',
         color: 'white'

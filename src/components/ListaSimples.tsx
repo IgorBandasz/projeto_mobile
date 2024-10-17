@@ -21,6 +21,7 @@ const ListaSimples = (props: ListaSimplesProps) => {
 data={props.listaPessoas}
 renderItem={({item})=>{
  return (
+
 <Text style={Styles.item}>
 nome{item}
 </Text>
@@ -39,6 +40,7 @@ nome:String
 const ItemSimples =(Props: itemProps)=>{
 return(
 <View>
+  
 <Text style={Styles.item2}>
 {Props.nome}
 

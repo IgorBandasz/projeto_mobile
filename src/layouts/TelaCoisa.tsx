@@ -1,33 +1,68 @@
-import React, { useState } from 'react';
-import { ImageBackground, Pressable, ScrollView, StyleSheet, Text, View, ViewProps } from 'react-native';
-import { CoisaProps, PrincipalProps } from '../navigation/HomeNavigator.tsx';
-import { styles } from '../styles/stylesPrincipal.ts';
+import React, {useState} from 'react';
+import {
+  ImageBackground,
+  Pressable,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+  ViewProps,
+} from 'react-native';
+import {CoisaProps, PrincipalProps} from '../navigation/HomeNavigator.tsx';
+import {styles} from '../styles/stylesPrincipal.ts';
 import ExemploAprovacao from '../components/ExemploAprovacao.tsx';
 import view from '../components/viwes.tsx';
-
+import ExemploCalculo from '../components/ExemploCalcule.tsx';
+import ListaSimples from '../components/ListaSimples.tsx';
+import Viwes from '../components/viwes.tsx';
 
 const TelaCoisa = (props: CoisaProps) => {
-const[valor] = useState(props.route.params.valor);
+  const [valor] = useState(props.route.params.valor);
 
-return(
-<ImageBackground style={styles.tela} source={{uri: 'https://services.meteored.com/img/article/universo-pode-estar-desacelerando-segundo-novas-observacoes-de-galaxias-1712261219743_1280.png'}}>
-{
- valor == 1 ?
- <Text style={{fontSize:40,color:"white"}}>isso e verdade
- </Text>
- :
- (valor == 2 ?
- <Text style={{fontSize:40,color:"white"}}>ta vazio
- </Text>
-:
-<Text style={{fontSize:40,color:"white"}}>muito pequeno
- </Text>
+  return (
+    <ImageBackground
+      style={{flex: 1}}
+      source={{
+        uri: 'https://services.meteored.com/img/article/universo-pode-estar-desacelerando-segundo-novas-observacoes-de-galaxias-1712261219743_1280.png',
+      }}>
+      <ScrollView>
+        <View style={{flex: 1, alignItems: 'flex-start',marginBottom:30}}>
+          <Pressable
+            style={{
+              backgroundColor: '#921fd1',
+              padding: 10,
+              borderRadius: 50,
+              marginTop: 50,
+            }}
+            onPress={() => {
+              props.navigation.goBack();
+            }}>
 
+            <Text style={{fontSize: 40, color: 'white'}}>voltar</Text>
+          </Pressable>
 
-)
-        }
-</ImageBackground>
-);
-}
+        </View>
+
+        <View>
+          {valor == 1 ? (
+            <ExemploCalculo valor1={0} valor2={1} />
+          ) : valor == 2 ? (
+            <ExemploAprovacao/>
+          ) : valor == 3 ? (
+                <View>
+           <Viwes/>
+            </View>
+          ) : valor == 4 ? (
+            <Text style={{fontSize: 40, color: 'white'}}>ex 4</Text>
+          ) : (
+            valor == 5 && (
+              <Text style={{fontSize: 40, color: 'white'}}>ex 5</Text>
+            )
+          )}
+        </View>
+      </ScrollView>
+    </ImageBackground>
+  );
+};
 
 export default TelaCoisa;

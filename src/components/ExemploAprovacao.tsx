@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -9,18 +9,20 @@ import {
 } from 'react-native';
 import {styles} from '../styles/stylesPrincipal';
 
-type InfoProps = {
-  nome: String;
-  nota1: number;
-  nota2: number;
-};
 
-const ExemploAprovacao = (props: InfoProps) => {
+
+const ExemploAprovacao = () => {
+  
+    const [nome, setnome] = useState('a');
+  const [nota1, setnota1] = useState(0);
+  const [nota2, setnota2] = useState(0);
+  
+  
   function verificarAprovacao() {
-    if ((props.nota1 + props.nota2) / 2 >= 7.0) {
-      return 'parabens o aluno ' + props.nome + ' foi aprovado!!';
+    if ((nota1 + nota2) / 2 >= 7.0) {
+      return 'parabens o aluno ' + nome + ' foi aprovado!!';
     } else {
-      return 'infelizmente o aluno ' + props.nome + ' foi reprovado, melhore';
+      return 'infelizmente o aluno ' + nome + ' foi reprovado, melhore';
     }
   }
 
@@ -33,21 +35,27 @@ const ExemploAprovacao = (props: InfoProps) => {
 
       <TextInput
         style={[styles.caixa_texto]}
-        defaultValue="Digite seu nome"
+        onChangeText={(text)=> setnome(text)}
       />
 
         <Text style={styles.titulo1}>primeira nota</Text>
+        
+        
 
+ 
 <TextInput
+value={nota1.toString()}
+onChangeText={(text)=> setnota1(Number.parseInt(text))}
         style={[styles.caixa_texto]}
-        defaultValue="Digite sua primeira nota"
+
       />
 
-       <Text style={styles.titulo1}>segunda nota </Text>
+       <Text style={styles.titulo1}>segunda nota  </Text>
 
       <TextInput
-        style={[styles.caixa_texto]}
-        defaultValue="Digite sua sua segunda nota"
+       value={nota2.toString()}
+       onChangeText={(text)=> setnota2(Number.parseInt(text))}
+               style={[styles.caixa_texto]}
       />
 
       <Text style={styles.titulo1}>resposta:{verificarAprovacao()}</Text>

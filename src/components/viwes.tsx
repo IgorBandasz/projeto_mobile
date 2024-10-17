@@ -2,7 +2,7 @@ import { StyleSheet, View } from "react-native";
 
 const Views = () => {
     return (
-        <>
+        <><View style={{backgroundColor:"#b701db"}}>
             <View style={styles_local.container_fixo}>
                 <View style={[styles_local.fundo_azul, 
                     styles_local.tamanho_50, styles_local.borda]} />
@@ -18,6 +18,7 @@ const Views = () => {
                     styles_local.flex_grande, styles_local.borda]} />
                 <View style={[styles_local.fundo_verde, 
                     styles_local.flex_grande, styles_local.borda]} />
+            </View>
             </View>
         </>
     );
@@ -46,10 +47,10 @@ const styles_local = StyleSheet.create({
         //definição do eixo principal
         flexDirection: 'row',
         //cor de fundo
-        backgroundColor: '#FFFACD',
+        backgroundColor: '#eaeaea',
         //margem
         margin: 10,
-        
+        padding:10
     },
     fundo_azul: {
         //cor de fundo
@@ -70,6 +71,7 @@ const styles_local = StyleSheet.create({
         height: 50
     },
     flex_pequeno: {
+        padding:10,
         //valor de preenchimento da área disponível
         flex: 3
     },
