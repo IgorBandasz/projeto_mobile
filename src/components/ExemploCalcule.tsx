@@ -33,21 +33,60 @@ type CalculoProps={
 
   return (
     <>
-    <text style={styles.titulo2}>
+<View style={{backgroundColor:"#ede8ee",borderRadius:30}}>
+    <Text style={{
+        textAlign:"center",
+        fontSize: 50,
+        fontWeight: 'bold',
+        color: '#bc19d9'}}>
+valor 1 = {props.valor1} 
+
+    </Text>
+    <Text style={{
+        textAlign:"center",
+        fontSize: 50,
+        fontWeight: 'bold',
+        color: '#bc19d9'}}>
+valor 2 = {props.valor2} 
+
+    </Text>
+    </View>
+
+    <View style={{alignItems:"center"}}>
+
+    <Text style={{
+        marginBottom:50,
+        marginTop:50,
+        fontSize: 50,
+        fontWeight: 'bold',
+        color: 'white'}}>
 somar:{Somar()}
-    </text>
+    </Text>
     
-    <text style={styles.titulo2}>
+    <Text style={{
+        marginBottom:50,
+        fontSize: 50,
+        fontWeight: 'bold',
+        color: 'white'}}>
 subtrair:{Subtrair()}
-    </text>
+    </Text>
     
-    <text style={styles.titulo2}>
+    <Text style={{
+        marginBottom:50,
+        fontSize: 50,
+        fontWeight: 'bold',
+        color: 'white'}}>
 Dividir:{Dividir()}
-    </text>
+    </Text>
     
-    <text style={styles.titulo2}>
+    <Text style={{
+        marginBottom:50,
+        fontSize: 50,
+        fontWeight: 'bold',
+        color: 'white'}}>
 Multiplicar:{Multiplicar()}
-    </text>
+    </Text>
+    </View>
     </>
   );
     };
