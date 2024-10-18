@@ -7,27 +7,55 @@ const TelaLogin = (props: LoginProps) => {
   const [login, setLogin] = useState('');
   const [senha, setSenha] = useState('');
 
-  function exibirMensagem() {
-    Alert.alert(
-      'Dados',
-      'Login: ' + login +
-      '\nSenha: ' + senha
-    )
-
-    props.navigation.navigate(
-      'TelaPrincipal',
-      { texto: login }
-    );
+  function logar() {
+    if (verificaCampos()) {
+      auth()
+        .signInWithEmailAndPassword(login, senha)
+        .then(() => {
+          props.navigation.navigate('TelaPrincipal', {texto:''})
+        })
+        .catch((error) => tratarErros(String(error)))
+    }
   }
 
+  function verificaCampos() {
+    if (login == '') {
+      Alert.alert("Email em branco", "Digite um email")
+      return false;
+    }
+    if (senha == '') {
+      Alert.alert("Senha em branco", "Digite uma senha")
+      return false;
+    }
 
+    return true;
+  }
 
-  function logar() {
+  function tratarErros(erro: string) {
+    console.log(erro);
+    
+    if (erro.includes("[auth/invalid-email]")) {
+      Alert.alert("Email inválido", "Digite um email válido")
+    } else if (erro.includes("[ INVALID_LOGIN_CREDENTIALS ]")) {
+      Alert.alert("Login ou senha incorretos", "")
+    } else if (erro.includes("[auth/invalid-credential]")) {
+      Alert.alert("Login ou senha incorretos", "")
+    } else {
+      Alert.alert("Erro", erro)
+    }
+  }
+
+  function redefinirSenha() {
+    if (login == '') {
+      Alert.alert("Email em branco", "Preencha o email")
+      return
+    }
+
     auth()
-      .signInWithEmailAndPassword(login, senha)
-      .then(() => {
-        props.navigation.navigate('TelaPrincipal', { texto: '' })
-      })
+      .sendPasswordResetEmail(login)
+      .then(() => Alert.alert("Redefinir senha",
+        "Enviamos um email para você redefinir sua senha"))
+      .catch((error) => console.log(error))
   }
 
   return (
@@ -61,7 +89,7 @@ const TelaLogin = (props: LoginProps) => {
 
           <Pressable
             style={(state) => [styles.botao, state.pressed ? { opacity: 0.5 } : null]}
-            onPress={() => { exibirMensagem() }}
+            onPress={() => { logar() }}
           >
             <Text style={styles.desc_botao}>Entrar</Text>
           </Pressable>
@@ -71,13 +99,14 @@ const TelaLogin = (props: LoginProps) => {
           style={{ flex: 0.3, flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center' }}>
           <Pressable
             style={(state) => [styles.botao, state.pressed ? { opacity: 0.5 } : null]}
-            onPress={()=>{props.navigation.navigate('TelaCadUsuario')}}
+            onPress={() => { props.navigation.navigate('TelaCadUsuario') }}
           >
             <Text style={styles.desc_botao}>Cadastrar-se</Text>
           </Pressable>
 
           <Pressable
             style={(state) => [styles.botao, state.pressed ? { opacity: 0.5 } : null]}
+            onPress={() => {redefinirSenha()}}
           >
             <Text style={styles.desc_botao}>Esqueceu a senha</Text>
           </Pressable>
