@@ -23,7 +23,7 @@ const TelaCoisa = (props: CoisaProps) => {
     <ImageBackground
       style={{flex: 1}}
       source={{
-        uri: 'https://services.meteored.com/img/article/universo-pode-estar-desacelerando-segundo-novas-observacoes-de-galaxias-1712261219743_1280.png',
+        uri: 'https://wallpapers.com/images/hd/purple-galaxy-2880-x-1800-background-srvn2y6n8krndfwp.jpg',
       }}>
       <ScrollView>
         <View style={{flex: 1, alignItems: 'flex-start',marginBottom:30}}>
@@ -49,9 +49,9 @@ const TelaCoisa = (props: CoisaProps) => {
           ) : valor == 2 ? (
             <ExemploAprovacao/>
           ) : valor == 3 ? (
-                <View>
+              // 
            <Viwes/>
-            </View>
+            
           ) : valor == 4 ? (
             <Text style={{fontSize: 40, color: 'white'}}>ex 4</Text>
           ) : (

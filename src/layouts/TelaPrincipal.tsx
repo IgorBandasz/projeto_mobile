@@ -14,14 +14,17 @@ import login from '../components/login';
 
 const TelaPrincipal = (props: PrincipalProps) => {
   function Coisas() {
-    props.navigation.navigate('TelaCoisas', {valor: 1});
+    props.navigation.navigate('TelaCoisas');
+  }
+  function produtos() {
+    props.navigation.navigate('TelaCadProdutos');
   }
 
   return (
     <ImageBackground
       style={{flex: 1}}
       source={{
-        uri: 'https://services.meteored.com/img/article/universo-pode-estar-desacelerando-segundo-novas-observacoes-de-galaxias-1712261219743_1280.png',
+        uri: 'https://wallpapers.com/images/hd/purple-galaxy-2880-x-1800-background-srvn2y6n8krndfwp.jpg',
       }}>
       <ScrollView>
 
@@ -48,13 +51,24 @@ const TelaPrincipal = (props: PrincipalProps) => {
           <Pressable
             style={{borderBottomStartRadius:1,
                 borderTopEndRadius:1,
-              marginTop: '90%',
+              marginTop: '70%',
               backgroundColor: '#921fd1',
               padding: 10,
               borderRadius: 50,
             }}
             onPress={Coisas}>
-            <Text style={{fontSize: 40, color: 'white'}}>as coisas</Text>
+            <Text style={{fontSize: 40, color: 'white'}}>menu componentes</Text>
+          </Pressable>
+          <Pressable
+            style={{borderBottomStartRadius:1,
+                borderTopEndRadius:1,
+              marginTop: '10%',
+              backgroundColor: '#921fd1',
+              padding: 10,
+              borderRadius: 50,
+            }}
+            onPress={produtos}>
+            <Text style={{fontSize: 40, color: 'white'}}>produtos</Text>
           </Pressable>
         </View>
       </ScrollView>

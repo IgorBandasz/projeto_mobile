@@ -30,7 +30,6 @@ fontSize:30,
 color:'white'
     },
     titulo2: {
-
         justifyContent: 'center',
                 marginBottom:"20%",
                 fontSize: 50,

@@ -21,7 +21,7 @@ const Telacoisas = (props: CoisasProps) => {
     <ImageBackground
       style={{flex: 1}}
       source={{
-        uri: 'https://services.meteored.com/img/article/universo-pode-estar-desacelerando-segundo-novas-observacoes-de-galaxias-1712261219743_1280.png',
+        uri: 'https://wallpapers.com/images/hd/purple-galaxy-2880-x-1800-background-srvn2y6n8krndfwp.jpg',
       }}>
       <ScrollView>
 
