@@ -26,21 +26,21 @@ const TelaCoisa = (props: CoisaProps) => {
         uri: 'https://wallpapers.com/images/hd/purple-galaxy-2880-x-1800-background-srvn2y6n8krndfwp.jpg',
       }}>
       <ScrollView>
-        <View style={{flex: 1, alignItems: 'flex-start',marginBottom:30}}>
+      <View style={{flex: 1, alignItems: 'flex-start'}}>
           <Pressable
-            style={{
+                style={{borderBottomStartRadius:1,
+                    borderTopStartRadius:1,
+                borderTopEndRadius:1,
               backgroundColor: '#921fd1',
               padding: 10,
               borderRadius: 50,
-              marginTop: 50,
+             marginBottom:50
             }}
             onPress={() => {
               props.navigation.goBack();
             }}>
-
             <Text style={{fontSize: 40, color: 'white'}}>voltar</Text>
           </Pressable>
-
         </View>
 
         <View>

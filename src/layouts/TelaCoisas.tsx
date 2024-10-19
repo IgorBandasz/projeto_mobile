@@ -27,18 +27,20 @@ const Telacoisas = (props: CoisasProps) => {
 
 
 
-        <View style={{alignItems: 'flex-start'}}>
+         <View style={{flex: 1, alignItems: 'flex-start'}}>
           <Pressable
-            style={state => [
-              styles.botaoEntrar,
-              {marginTop: 30},
-              state.pressed ? {opacity: 0.5} : null,
-            ]}
+                style={{borderBottomStartRadius:1,
+                    borderTopStartRadius:1,
+                borderTopEndRadius:1,
+              backgroundColor: '#921fd1',
+              padding: 10,
+              borderRadius: 50,
+             
+            }}
             onPress={() => {
-              voltar();
+              props.navigation.goBack();
             }}>
-              
-            <Text style={{color: 'white', fontSize: 40}}>voltar</Text>
+            <Text style={{fontSize: 40, color: 'white'}}>voltar</Text>
           </Pressable>
         </View>
 

@@ -45,6 +45,22 @@ props.navigation.goBack();
         uri: 'https://wallpapers.com/images/hd/purple-galaxy-2880-x-1800-background-srvn2y6n8krndfwp.jpg',
       }}>
       <ScrollView>
+      <View style={{flex: 1, alignItems: 'flex-start'}}>
+          <Pressable
+                style={{borderBottomStartRadius:1,
+                    borderTopStartRadius:1,
+                borderTopEndRadius:1,
+              backgroundColor: '#921fd1',
+              padding: 10,
+              borderRadius: 50,
+             
+            }}
+            onPress={() => {
+              props.navigation.goBack();
+            }}>
+            <Text style={{fontSize: 40, color: 'white'}}>voltar</Text>
+          </Pressable>
+        </View>
 <View style={{flex: 1, alignItems: 'center'}}>
       <Text style={styles.titulo1}>cadastrar produto</Text>
       </View>

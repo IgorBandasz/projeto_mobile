@@ -19,6 +19,9 @@ const TelaPrincipal = (props: PrincipalProps) => {
   function produtos() {
     props.navigation.navigate('TelaCadProdutos');
   }
+  function pacientes() {
+    props.navigation.navigate('TelaPacientes');
+  }
 
   return (
     <ImageBackground
@@ -29,15 +32,15 @@ const TelaPrincipal = (props: PrincipalProps) => {
       <ScrollView>
 
         
-
-        <View style={{flex: 1, alignItems: 'flex-start'}}>
+      <View style={{flex: 1, alignItems: 'flex-start'}}>
           <Pressable
-            style={{borderBottomStartRadius:1,
+                style={{borderBottomStartRadius:1,
+                    borderTopStartRadius:1,
                 borderTopEndRadius:1,
               backgroundColor: '#921fd1',
               padding: 10,
               borderRadius: 50,
-              marginTop: 50,
+             
             }}
             onPress={() => {
               props.navigation.goBack();
@@ -51,7 +54,7 @@ const TelaPrincipal = (props: PrincipalProps) => {
           <Pressable
             style={{borderBottomStartRadius:1,
                 borderTopEndRadius:1,
-              marginTop: '70%',
+              marginTop: '50%',
               backgroundColor: '#921fd1',
               padding: 10,
               borderRadius: 50,
@@ -68,7 +71,18 @@ const TelaPrincipal = (props: PrincipalProps) => {
               borderRadius: 50,
             }}
             onPress={produtos}>
-            <Text style={{fontSize: 40, color: 'white'}}>produtos</Text>
+            <Text style={{fontSize: 40, color: 'white'}}>sistema de produtos</Text>
+          </Pressable>
+          <Pressable
+            style={{borderBottomStartRadius:1,
+                borderTopEndRadius:1,
+              marginTop: '10%',
+              backgroundColor: '#921fd1',
+              padding: 10,
+              borderRadius: 50,
+            }}
+            onPress={pacientes}>
+            <Text style={{fontSize: 40, color: 'white'}}>sistema de pacientes</Text>
           </Pressable>
         </View>
       </ScrollView>

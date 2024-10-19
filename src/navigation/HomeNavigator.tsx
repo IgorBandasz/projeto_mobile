@@ -6,7 +6,8 @@ import TelaPrincipal from '../layouts/TelaPrincipal';
 import TelaCadastrar from '../layouts/TelaCadastrar';
 import TelaCoisas from '../layouts/TelaCoisas';
 import TelaCoisa from '../layouts/TelaCoisa';
-import TelaLogin from '../layouts/TelaLogin';
+import TelaLogin from'../layouts/Telalogin';
+import TelaPacientes from'../layouts/TelaPacientes';
 import TelaEsqueceuS from '../layouts/TelaEsqueceuS';
 import TelaCadProdutos from '../layouts/TelaCadProdutos';
 
@@ -18,6 +19,7 @@ type RootStackParamList = {
   TelaCadastrar: undefined; //Não possui parâmetros
   TelaCoisas:undefined; //Não possui parâmetros
   TelaCadProdutos:undefined; //Não possui parâmetros
+  TelaPacientes:undefined; //Não possui parâmetros
   TelaCoisa: {valor: number}; //Não possui parâmetros
 };
 
@@ -29,15 +31,19 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 const HomeNavigator = () => {
   return (
     <Stack.Navigator
-      initialRouteName="TelaLogin" //nome da tela inicial
+      initialRouteName="TelaPrincipal" //nome da tela inicial
       screenOptions={{headerShown: false}} //headerShown define se o cabeçalho irá ser exibido
     >
       {/* define uma tela dando um nome(igual ao RootStackParamList) e qual o componente será carregado */}
 
       <Stack.Screen name="TelaLogin" component={TelaLogin} />
 
+      
+
       <Stack.Screen name="TelaCadProdutos" component={TelaCadProdutos} />
 
+      <Stack.Screen name="TelaPacientes" component={TelaPacientes} />
+      
       <Stack.Screen name="TelaPrincipal" component={TelaPrincipal} />
 
       <Stack.Screen name="TelaCadastrar" component={TelaCadastrar} />
@@ -61,6 +67,7 @@ type PrincipalProps = NativeStackScreenProps<
 type LoginProps = NativeStackScreenProps<RootStackParamList, 'TelaLogin'>;
 type EsqueceuProps = NativeStackScreenProps<RootStackParamList, 'TelaEsqueceuS'>;
 type CadProdutosprops = NativeStackScreenProps<RootStackParamList, 'TelaCadProdutos'>;
+type PacientesProps = NativeStackScreenProps<RootStackParamList, 'TelaPacientes'>;
 
 
 type CadastrarProps = NativeStackScreenProps<
@@ -80,4 +87,4 @@ type CoisaProps = NativeStackScreenProps<
 export default HomeNavigator;
 
 //exporta os tipos de dados para ficar visível para outros arquivos
-export type {PrincipalProps, LoginProps, CadastrarProps,CoisasProps,CoisaProps,EsqueceuProps,CadProdutosprops};
+export type {PrincipalProps, LoginProps, CadastrarProps,CoisasProps,CoisaProps,EsqueceuProps,CadProdutosprops,PacientesProps};

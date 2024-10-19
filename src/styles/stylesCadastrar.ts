@@ -55,6 +55,6 @@ color:'white'
                 borderRadius: 4,
                 margin: 3,
                 marginTop:0,
-            width:400
+            width:380
             },
 });
