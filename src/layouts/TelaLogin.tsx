@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, Pressable, Image, Alert, ImageBackground } from 'react-native';
 import { LoginProps } from '../navigation/HomeNavigator';
 import auth from "@react-native-firebase/auth";
+import { styles } from '../styles/styles';
 
 const TelaLogin = (props: LoginProps) => {
   const [login, setLogin] = useState('');
@@ -59,56 +60,56 @@ const TelaLogin = (props: LoginProps) => {
   }
 
   return (
-    <View style={styles.container}>
+    <View style={styles.tela}>
 
-      <View style={styles.painel_imagem}>
+      <View style={styles_local.painel_imagem}>
         <Image
-          style={styles.imagem}
+          style={styles_local.imagem}
           source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Logo_of_Twitter.svg/512px-Logo_of_Twitter.svg.png' }}
         />
       </View>
 
-      <View style={styles.container_login}>
+      <View style={styles_local.container_login}>
         <View style={{ flex: 1, alignItems: 'center', }}>
           <Text
-            style={styles.titulo_caixa_texto}>
+            style={styles_local.titulo_caixa_texto}>
             Login
           </Text>
           <TextInput
-            style={styles.caixa_texto}
+            style={styles_local.caixa_texto}
             onChangeText={(text) => setLogin(text)} />
 
           <Text
-            style={styles.titulo_caixa_texto}>
+            style={styles_local.titulo_caixa_texto}>
             Senha
           </Text>
           <TextInput
-            style={styles.caixa_texto}
+            style={styles_local.caixa_texto}
             secureTextEntry={true}
             onChangeText={(text) => setSenha(text)} />
 
           <Pressable
-            style={(state) => [styles.botao, state.pressed ? { opacity: 0.5 } : null]}
+            style={(state) => [styles_local.botao, state.pressed ? { opacity: 0.5 } : null]}
             onPress={() => { logar() }}
           >
-            <Text style={styles.desc_botao}>Entrar</Text>
+            <Text style={styles_local.desc_botao}>Entrar</Text>
           </Pressable>
         </View>
 
         <View
           style={{ flex: 0.3, flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center' }}>
           <Pressable
-            style={(state) => [styles.botao, state.pressed ? { opacity: 0.5 } : null]}
+            style={(state) => [styles_local.botao, state.pressed ? { opacity: 0.5 } : null]}
             onPress={() => { props.navigation.navigate('TelaCadUsuario') }}
           >
-            <Text style={styles.desc_botao}>Cadastrar-se</Text>
+            <Text style={styles_local.desc_botao}>Cadastrar-se</Text>
           </Pressable>
 
           <Pressable
-            style={(state) => [styles.botao, state.pressed ? { opacity: 0.5 } : null]}
+            style={(state) => [styles_local.botao, state.pressed ? { opacity: 0.5 } : null]}
             onPress={() => {redefinirSenha()}}
           >
-            <Text style={styles.desc_botao}>Esqueceu a senha</Text>
+            <Text style={styles_local.desc_botao}>Esqueceu a senha</Text>
           </Pressable>
         </View>
       </View>
@@ -118,7 +119,7 @@ const TelaLogin = (props: LoginProps) => {
 
 export default TelaLogin;
 
-const styles = StyleSheet.create({
+const styles_local = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#FFFACD'

@@ -4,7 +4,12 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
     tela: {
         flex: 1, 
-        backgroundColor: '#FFFACD' 
+        backgroundColor: '#00FFFF' 
+    },
+    tituloTela: {
+      fontSize: 35, 
+      textAlign: 'center',
+      color: 'black' 
     },
     titulo1: {
         fontSize: 40,
@@ -23,6 +28,14 @@ const styles = StyleSheet.create({
         paddingHorizontal: 30,
         marginTop: 20,
         borderRadius: 10
+    },
+    botao_vermelho: {
+      justifyContent: 'center',
+      backgroundColor: 'red',
+      paddingVertical: 10,
+      paddingHorizontal: 30,
+      marginTop: 20,
+      borderRadius: 10
     },
     texto_botao: {
         fontSize: 20,
@@ -50,7 +63,8 @@ const styles = StyleSheet.create({
         borderWidth: 2,
         borderColor: 'black',
         borderRadius: 15,
-        marginVertical: 5
+        marginVertical: 5,
+        backgroundColor: 'white'
     },
     click: {
         opacity: 0.5
