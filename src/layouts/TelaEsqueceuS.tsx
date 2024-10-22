@@ -64,7 +64,7 @@ auth()
               voltar
             }>
               
-            <Text style={{color: 'white', fontSize: 40}}>voltar</Text>
+            <Text style={{color: 'white', fontSize: 30}}>voltar</Text>
           </Pressable>
         </View>
         <View style={{flex:1,alignItems:"center"}}>

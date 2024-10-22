@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {
+  Alert,
   FlatList,
   ImageBackground,
   Pressable,
@@ -25,6 +26,7 @@ const TelaPacientes = (props: PacientesProps) => {
 
   function adicionar() {
     //crie um Paciente primeiro
+    if(verificarCampos()){
     let novoPaciente = {
     nome: nome,
     problema: problema,
@@ -34,10 +36,51 @@ const TelaPacientes = (props: PacientesProps) => {
 
     
 
-    //inserindo um novo paciente na lista
+    //o ... e como se estivece estraindo os valores da lista (se esqucer e so ler que tu entende)
     setLista(lista => [...lista, novoPaciente]);
+
+ 
+    setNome('')
+     setProblema('')
+     setIdade(0)
+     setRisco(1)
+}
+  
+
   }
 
+
+  function verificarCampos(): boolean {
+    if (!nome) {
+      Alert.alert('Campo em branco', 'Preencha o campo "Nome".')
+      return false
+    }
+    if (!idade) {
+      Alert.alert('Campo em branco', 'Preencha o campo "Idade".')
+      return false
+    }
+    if (!problema) {
+      Alert.alert('Campo em branco', 'Preencha o campo "Enfermidade".')
+      return false
+    }
+    if (!risco) {
+      Alert.alert('Campo em branco', 'Preencha o campo "Risco".')
+      return false
+    }
+    let idadeNumero = idade;
+    if (!idadeNumero || idadeNumero > 130 || idadeNumero < 0) {
+      Alert.alert('Preenchimento incorreto', 'O campo "Idade" deve conter um valor numérico.')
+      setIdade(0)
+      return false
+    }
+    let riscoNumero = risco;
+    if (!riscoNumero || riscoNumero > 5 || riscoNumero < 1) {
+      Alert.alert('Preenchimento incorreto', 'O campo "Risco" deve conter um valor numérico entre 1 e 5.')
+      setRisco(1)
+      return false
+    }
+    return true
+  }
   return (
     <ImageBackground
       style={{flex: 1}}
@@ -60,7 +103,7 @@ const TelaPacientes = (props: PacientesProps) => {
             onPress={() => {
               props.navigation.goBack();
             }}>
-            <Text style={{fontSize: 40, color: 'white'}}>voltar</Text>
+            <Text style={{fontSize: 30, color: 'white'}}>voltar</Text>
           </Pressable>
         </View>
         <View style={{flex: 1, alignItems: 'center'}}>
@@ -70,11 +113,12 @@ const TelaPacientes = (props: PacientesProps) => {
 
           <TextInput
             style={[styles.caixa_texto]}
-            
+            value={nome}
             onChangeText={Text => setNome(Text)}
           />
           <Text style={styles.titulo1}>infermidade</Text>
           <TextInput
+            value={problema}
             style={[styles.caixa_texto]}
             onChangeText={Text => setProblema(Text)}
           />

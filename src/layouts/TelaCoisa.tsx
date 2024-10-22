@@ -39,7 +39,7 @@ const TelaCoisa = (props: CoisaProps) => {
             onPress={() => {
               props.navigation.goBack();
             }}>
-            <Text style={{fontSize: 40, color: 'white'}}>voltar</Text>
+            <Text style={{fontSize: 30, color: 'white'}}>voltar</Text>
           </Pressable>
         </View>
 

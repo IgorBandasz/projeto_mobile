@@ -17,10 +17,15 @@ import firestore from '@react-native-firebase/firestore';
 const TelaCadProdutos = (props: CadProdutosprops) => {
     const [nome,setnome] = useState('');
     const [codigoBarras,setcodigoBarras] = useState('');
-    const [preco,setpreco] = useState(1);
+    const [preco,setpreco] = useState(1.00);
   
 
+function verProdutos(){
+props.navigation.navigate("TelaConsProdutos");
+
+}
 function cadastrar(){
+  if(verificaCampos()){
     let produto ={
         nome : nome,
         codigoBarras: codigoBarras,
@@ -31,20 +36,36 @@ firestore()
 .collection('produtos')
 .add(produto)
 .then(()=>{Alert.alert("produto","produto cadastrado com sucesso!")
-props.navigation.goBack();
-})
+setnome("")
+setcodigoBarras("")
+setpreco(0)
 
+})
 .catch((error)=>console.log(error));
 
 }
+}
+function verificaCampos() {
+  if (nome == '') {
+    Alert.alert("Nome em branco",
+      "Digite um nome")
+    return false;
+  }
+  if (codigoBarras == '') {
+    Alert.alert("Código de Barras em branco",
+      "Digite um código de barras")
+    return false;
+  }
 
+  return true;
+}
   return (
     <ImageBackground
       style={{flex: 1}}
       source={{
         uri: 'https://wallpapers.com/images/hd/purple-galaxy-2880-x-1800-background-srvn2y6n8krndfwp.jpg',
       }}>
-      <ScrollView>
+   <ScrollView>
       <View style={{flex: 1, alignItems: 'flex-start'}}>
           <Pressable
                 style={{borderBottomStartRadius:1,
@@ -58,9 +79,10 @@ props.navigation.goBack();
             onPress={() => {
               props.navigation.goBack();
             }}>
-            <Text style={{fontSize: 40, color: 'white'}}>voltar</Text>
+            <Text style={{fontSize: 30, color: 'white'}}>voltar</Text>
           </Pressable>
         </View>
+        
 <View style={{flex: 1, alignItems: 'center'}}>
       <Text style={styles.titulo1}>cadastrar produto</Text>
       </View>
@@ -69,7 +91,7 @@ props.navigation.goBack();
         <Text style={styles.titulo1}>nome</Text>
       <TextInput
         style={[styles.caixa_texto]}
-        defaultValue="Digite seu email"
+    value={nome}
         onChangeText={Text => setnome(Text)}
       />
 
@@ -83,12 +105,18 @@ props.navigation.goBack();
         />
            <Text style={styles.titulo1}>preco</Text>
        <TextInput
+       maxLength={7}
        value={preco.toString()}
        onChangeText={(text)=> setpreco(Number.parseInt(text))}
                style={[styles.caixa_texto]}
       />
 
-    
+    <View style={{flexDirection: 'row',
+    justifyContent: 'space-between', 
+    padding: 0, 
+    gap:30,
+    marginBottom:"20%",
+    }}>
       <Pressable
             style={state => [
               
@@ -103,12 +131,31 @@ props.navigation.goBack();
               state.pressed ? {opacity: 0.5} : null,
             ]}onPress={cadastrar}>
             
-            <Text style={{ justifyContent: 'center',
-        fontSize: 40,
+            <Text style={{ 
+        fontSize: 30,
         fontWeight: 'bold',
-        color: 'white'}}>enviar</Text>
+        color: 'white'}}>cadastrar</Text>
           </Pressable>
-
+      <Pressable
+            style={state => [
+              
+              
+              { 
+                 backgroundColor: '#921fd1',
+                alignItems: 'center',
+                borderBottomStartRadius: 1,
+                borderTopEndRadius: 1,
+                borderRadius: 30,
+                padding: 10,marginTop: 30},
+              state.pressed ? {opacity: 0.5} : null,
+            ]}onPress={verProdutos}>
+            
+            <Text style={{ justifyContent: 'center',
+        fontSize: 30,
+        fontWeight: 'bold',
+        color: 'white'}}>ver produtos</Text>
+          </Pressable>
+          </View>
         </View>
       </ScrollView>
     </ImageBackground>

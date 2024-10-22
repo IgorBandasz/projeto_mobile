@@ -10,6 +10,7 @@ import TelaLogin from'../layouts/Telalogin';
 import TelaPacientes from'../layouts/TelaPacientes';
 import TelaEsqueceuS from '../layouts/TelaEsqueceuS';
 import TelaCadProdutos from '../layouts/TelaCadProdutos';
+import TelaConsProdutos from '../layouts/TelaConsProdutos';
 
 //Define quais as telas e os parâmetros de cada tela
 type RootStackParamList = {
@@ -20,6 +21,7 @@ type RootStackParamList = {
   TelaCoisas:undefined; //Não possui parâmetros
   TelaCadProdutos:undefined; //Não possui parâmetros
   TelaPacientes:undefined; //Não possui parâmetros
+  TelaConsProdutos:undefined; //Não possui parâmetros
   TelaCoisa: {valor: number}; //Não possui parâmetros
 };
 
@@ -31,7 +33,7 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 const HomeNavigator = () => {
   return (
     <Stack.Navigator
-      initialRouteName="TelaPrincipal" //nome da tela inicial
+      initialRouteName="TelaLogin" //nome da tela inicial
       screenOptions={{headerShown: false}} //headerShown define se o cabeçalho irá ser exibido
     >
       {/* define uma tela dando um nome(igual ao RootStackParamList) e qual o componente será carregado */}
@@ -41,6 +43,8 @@ const HomeNavigator = () => {
       
 
       <Stack.Screen name="TelaCadProdutos" component={TelaCadProdutos} />
+
+      <Stack.Screen name="TelaConsProdutos" component={TelaConsProdutos} />
 
       <Stack.Screen name="TelaPacientes" component={TelaPacientes} />
       
@@ -67,6 +71,7 @@ type PrincipalProps = NativeStackScreenProps<
 type LoginProps = NativeStackScreenProps<RootStackParamList, 'TelaLogin'>;
 type EsqueceuProps = NativeStackScreenProps<RootStackParamList, 'TelaEsqueceuS'>;
 type CadProdutosprops = NativeStackScreenProps<RootStackParamList, 'TelaCadProdutos'>;
+type ConsProdutosprops = NativeStackScreenProps<RootStackParamList, 'TelaConsProdutos'>;
 type PacientesProps = NativeStackScreenProps<RootStackParamList, 'TelaPacientes'>;
 
 
@@ -87,4 +92,4 @@ type CoisaProps = NativeStackScreenProps<
 export default HomeNavigator;
 
 //exporta os tipos de dados para ficar visível para outros arquivos
-export type {PrincipalProps, LoginProps, CadastrarProps,CoisasProps,CoisaProps,EsqueceuProps,CadProdutosprops,PacientesProps};
+export type {PrincipalProps, LoginProps, CadastrarProps,CoisasProps,CoisaProps,EsqueceuProps,CadProdutosprops,PacientesProps,ConsProdutosprops};
