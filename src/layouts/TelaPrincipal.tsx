@@ -30,6 +30,18 @@ const TelaPrincipal = (props: PrincipalProps) => {
         <Text style={styles.texto_botao}>Lista de Atendimentos</Text>
       </Pressable>
 
+      <Pressable
+        style={styles.botao}
+        onPress={() => { props.navigation.navigate('TelaCadProduto') }}>
+        <Text style={styles.texto_botao}>Cadastro de Produtos</Text>
+      </Pressable>
+
+      <Pressable
+        style={styles.botao}
+        onPress={() => { props.navigation.navigate('TelaConsProduto') }}>
+        <Text style={styles.texto_botao}>Consulta de Produtos</Text>
+      </Pressable>
+
     </View>
   );
 }

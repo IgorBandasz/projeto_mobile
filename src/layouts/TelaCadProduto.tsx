@@ -4,25 +4,20 @@ import { Alert, Pressable, StyleSheet, Text, TextInput, View } from "react-nativ
 import firestore from "@react-native-firebase/firestore";
 import { Produto } from "../types/Produto";
 import { CadProdutoProps } from "../navigation/HomeNavigator";
+import { styles } from "../styles/styles";
 
 const TelaCadProduto = (props: CadProdutoProps) => {
   const [nome, setNome] = useState('');
   const [codigoBarras, setCodigoBarras] = useState('');
-  const [preco, setPreco] = useState(0);
+  const [preco, setPreco] = useState('');
 
   function cadastrar() {
     if (verificaCampos()) {
-
-
-
-
-
-
       //crie um objeto do tipo Produto
       let produto = {
         nome: nome,
         codigoBarras: codigoBarras,
-        preco: preco
+        preco: Number.parseFloat(preco)
       } as Produto;
 
       //adiciona o objeto produto na tabela produtos
@@ -33,22 +28,34 @@ const TelaCadProduto = (props: CadProdutoProps) => {
           Alert.alert("Produto", "Cadastrado com sucesso!");
           props.navigation.goBack();
         })
-        .catch((error) => console.log(error));
-
-
-
+        .catch((error) => {
+          console.log(error)
+          Alert.alert("Erro", String(error));
+        });
     }
   }
 
   function verificaCampos() {
-    if (nome == '') {
+    if (!nome) {
       Alert.alert("Nome em branco",
         "Digite um nome")
       return false;
     }
-    if (codigoBarras == '') {
+    if (!codigoBarras) {
       Alert.alert("Código de Barras em branco",
         "Digite um código de barras")
+      return false;
+    }
+    if (!preco) {
+      Alert.alert("Preço em branco",
+        "Digite um preço")
+      return false;
+    }
+
+    let precoNumero = Number.parseFloat(preco)
+    if (precoNumero <= 0) {
+      Alert.alert("Preço incorreto",
+        "Digite um preço maior do que zero")
       return false;
     }
 
@@ -56,59 +63,42 @@ const TelaCadProduto = (props: CadProdutoProps) => {
   }
 
   return (
-    <View>
-      <Text>Nome</Text>
+    <View
+      style={styles.tela}>
+      <Text style={styles.tituloTela}>Cadastro de Produto</Text>
+      <Text
+        style={styles.titulo_campos}>
+        Nome
+      </Text>
       <TextInput
         style={styles.caixa_texto}
         onChangeText={(text) => { setNome(text) }} />
 
-      <Text>Código de Barras</Text>
+      <Text
+        style={styles.titulo_campos}>
+        Código de Barras
+      </Text>
       <TextInput
         maxLength={14}
-        style={styles.caixa_texto}
+        style={[styles.caixa_texto, { width: '60%' }]}
         onChangeText={(text) => { setCodigoBarras(text) }} />
 
-      <Text>Preço</Text>
+      <Text
+        style={styles.titulo_campos}>
+        Preço
+      </Text>
       <TextInput
         maxLength={7}
-        style={styles.caixa_texto}
-        onChangeText={(text) => { setPreco(Number.parseFloat(text)) }} />  
+        style={[styles.caixa_texto, { width: '40%' }]}
+        onChangeText={(text) => { setPreco(text) }} />
 
       <Pressable
         style={styles.botao}
         onPress={() => cadastrar()}>
-        <Text style={styles.desc_botao}>Cadastrar</Text>
+        <Text style={styles.texto_botao}>Cadastrar</Text>
       </Pressable>
     </View>
   );
 }
 
 export default TelaCadProduto;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  caixa_texto: {
-    width: '70%',
-    color: 'black',
-    borderWidth: 1,
-    borderRadius: 4,
-    margin: 3
-  },
-  botao: {
-    justifyContent: 'center',
-    backgroundColor: 'green',
-    paddingVertical: 10,
-    paddingHorizontal: 30
-  },
-  desc_botao: {
-    fontSize: 20
-  },
-  text_area: {
-    borderWidth: 1,
-    borderColor: 'grey'
-  }
-});

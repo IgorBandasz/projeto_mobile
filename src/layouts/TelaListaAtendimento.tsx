@@ -20,14 +20,18 @@ const TelaListaAtendimento = (props: ListaAtendimentoProps) => {
 
   function adicionar() {
     if (verificarCampos()) {
-      let novoPaciente = {
+      let pac = {
         nome: nome,
         idade: Number.parseInt(idade),
         enfermidade: enfermidade,
         risco: Number.parseInt(risco)
       } as Paciente;
 
-      setLista((antigaLista) => [...antigaLista, novoPaciente]);
+      setLista((antigaLista) => [...antigaLista, pac]);
+      setNome('')
+      setIdade('')
+      setEnfermidade('')
+      setRisco('1')
     }
   }
 
@@ -50,6 +54,7 @@ const TelaListaAtendimento = (props: ListaAtendimentoProps) => {
     }
 
     let idadeNumero = Number.parseInt(idade);
+    console.log(idadeNumero)
     if (!idadeNumero || idadeNumero > 130 || idadeNumero < 0) {
       Alert.alert('Preenchimento incorreto', 'O campo "Idade" deve conter um valor numérico.')
       setIdade('')
@@ -91,7 +96,7 @@ const TelaListaAtendimento = (props: ListaAtendimentoProps) => {
           style={styles_local.titulo_campos}>Idade</Text>
         <TextInput
           style={[styles_local.caixa_texto, { width: 50 }]}
-          value={idade.toString()}
+          value={idade}
           keyboardType={'numeric'}
           onChangeText={(text) => { setIdade(text) }} />
 
@@ -99,7 +104,7 @@ const TelaListaAtendimento = (props: ListaAtendimentoProps) => {
           style={styles_local.titulo_campos}>Risco</Text>
         <TextInput
           style={[styles_local.caixa_texto, { width: 50 }]}
-          value={risco.toString()}
+          value={risco}
           keyboardType={'numeric'}
           onChangeText={(text) => { setRisco(text) }} />
       </View>

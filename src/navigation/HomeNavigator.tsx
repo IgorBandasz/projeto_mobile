@@ -6,6 +6,7 @@ import TelaComponentes from "../layouts/TelaComponentes";
 import TelaCadUsuario from "../layouts/TelaCadUsuario";
 import TelaCadProduto from "../layouts/TelaCadProduto";
 import TelaListaAtendimento from "../layouts/TelaListaAtendimento";
+import TelaConsProduto from "../layouts/TelaConsProduto";
 
 //Define quais as telas e os parâmetros de cada tela
 type RootStackParamList = {
@@ -15,6 +16,7 @@ type RootStackParamList = {
   TelaComponentes: {tipoComponente: number};
   TelaCadUsuario: undefined;
   TelaCadProduto: undefined;
+  TelaConsProduto: undefined;
   TelaListaAtendimento: undefined;
 };
 
@@ -38,6 +40,7 @@ const HomeNavigator = () => {
       <Stack.Screen name="TelaCadUsuario" component={TelaCadUsuario}/>
 
       <Stack.Screen name="TelaCadProduto" component={TelaCadProduto}/>
+      <Stack.Screen name="TelaConsProduto" component={TelaConsProduto}/>
 
       <Stack.Screen name="TelaListaAtendimento" component={TelaListaAtendimento}/>
     </Stack.Navigator>
@@ -64,8 +67,11 @@ type CadUsuarioProps = NativeStackScreenProps<RootStackParamList,
 type CadProdutoProps = NativeStackScreenProps<RootStackParamList,
   'TelaCadProduto'>;  
 
-  type ListaAtendimentoProps = NativeStackScreenProps<RootStackParamList,
+type ListaAtendimentoProps = NativeStackScreenProps<RootStackParamList,
   'TelaListaAtendimento'>;   
+
+type ConsProdutoProps = NativeStackScreenProps<RootStackParamList,
+  'TelaConsProduto'>;  
 
 //exporta o navegador da pilha para ficar visível para outros arquivos    
 export default HomeNavigator;
@@ -78,5 +84,6 @@ export type {
   ComponentesProps,
   CadUsuarioProps,
   CadProdutoProps,
-  ListaAtendimentoProps
+  ListaAtendimentoProps,
+  ConsProdutoProps
 };

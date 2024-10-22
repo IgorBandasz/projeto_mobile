@@ -23,6 +23,8 @@ const styles = StyleSheet.create({
     },
     botao: {
         justifyContent: 'center',
+        alignItems:'center',
+        width: 'auto',
         backgroundColor: 'green',
         paddingVertical: 10,
         paddingHorizontal: 30,
@@ -41,13 +43,17 @@ const styles = StyleSheet.create({
         fontSize: 20,
         color: 'white'
     },
-    
+    titulo_campos: {
+      fontSize: 20,
+      color: 'black'
+    },
     caixa_texto: {
         color: 'black',
         fontSize: 20,
         borderWidth: 1,
         borderRadius: 4,
-        margin: 3
+        margin: 3,
+        backgroundColor: 'white',
     },
 
     largura_70: {
@@ -64,10 +70,14 @@ const styles = StyleSheet.create({
         borderColor: 'black',
         borderRadius: 15,
         marginVertical: 5,
+        marginHorizontal: 5,
         backgroundColor: 'white'
     },
     click: {
         opacity: 0.5
+    },
+    centralizar: {
+      alignItems: 'center'
     }
 });
 
