@@ -71,7 +71,7 @@ return(
        
           <View style={{flex:1 ,alignItems:"center"}}>
          
-        <Text style={{marginBottom:50,color:"white",fontSize:40,  fontWeight: 'bold'}} >lista de produtos</Text>
+        <Text style={{marginBottom:50,color:"white",fontSize:40,fontWeight: 'bold'}} >lista de produtos</Text>
         <FlatList style={{}}
 data={produtos}
 renderItem={(item) => {return(
