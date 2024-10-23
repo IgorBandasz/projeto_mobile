@@ -37,6 +37,21 @@ const TelaConsProduto = (props: ConsProdutoProps) => {
     return () => subscribe();
   }, []);
 
+  function deletarProduto(id: string) {
+    firestore()
+      .collection('produtos')
+      .doc(id)
+      .delete()
+      .then(() => {
+        Alert.alert("Produto", "Removido com sucesso")
+      })
+      .catch((error) => console.log(error));
+  }
+
+  function alterarNota(id: string) {
+    props.navigation.navigate("TelaAltProduto", { id: id })
+  }
+
   return (
     <View style={styles.tela}>
 
@@ -46,7 +61,9 @@ const TelaConsProduto = (props: ConsProdutoProps) => {
         renderItem={(info) =>
           <ItemProduto
             numeroOrdem={info.index + 1}
-            prod={info.item} />} />
+            prod={info.item}
+            onDeletar={deletarProduto}
+            onAlterar={alterarNota} />} />
 
 
       <View
@@ -64,6 +81,8 @@ const TelaConsProduto = (props: ConsProdutoProps) => {
 type ItemProdutoProps = {
   numeroOrdem: number;
   prod: Produto;
+  onDeletar: (id: string) => void;
+  onAlterar: (id: string) => void;
 }
 
 const ItemProduto = (props: ItemProdutoProps) => {
@@ -84,6 +103,27 @@ const ItemProduto = (props: ItemProdutoProps) => {
           Preço: R${props.prod.preco.toFixed(2)}
         </Text>
       </View>
+
+      <View
+        style={styles_local.botoes_card}>
+        <View style={styles_local.botao_deletar}>
+          <Pressable
+            onPress={() => props.onDeletar(props.prod.id)}>
+            <Text style={styles_local.texto_botao_card}>
+              X
+            </Text>
+          </Pressable>
+        </View>
+
+        <View style={styles_local.botao_alterar}>
+          <Pressable
+            onPress={() => props.onAlterar(props.prod.id)}>
+            <Text style={styles_local.texto_botao_card}>
+              A
+            </Text>
+          </Pressable>
+        </View>
+      </View>
     </View>
   );
 }
@@ -91,15 +131,6 @@ const ItemProduto = (props: ItemProdutoProps) => {
 export default TelaConsProduto;
 
 const styles_local = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#FFFACD'
-  },
-  titulo: {
-    fontSize: 40,
-    textAlign: 'center',
-    color: 'black'
-  },
   card: {
     borderWidth: 2,
     borderColor: 'grey',
@@ -111,6 +142,10 @@ const styles_local = StyleSheet.create({
   },
   dados_card: {
     flex: 1
+  },
+  botoes_card: {
+    flexDirection: 'row',
+    justifyContent: 'space-between'
   },
   botao_deletar: {
     backgroundColor: 'red',
