@@ -33,6 +33,7 @@ const styles = StyleSheet.create({
     },
     botao_vermelho: {
       justifyContent: 'center',
+      alignItems:'center',
       backgroundColor: 'red',
       paddingVertical: 10,
       paddingHorizontal: 30,

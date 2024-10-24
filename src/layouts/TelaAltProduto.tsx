@@ -26,7 +26,7 @@ const TelaAltProduto = (props: AltProdutoProps) => {
 
     setNome(produto.nome);
     setCodigoBarras(produto.codigoBarras);
-    setPreco(produto.preco.toString());
+    setPreco(produto.preco.toFixed(2));
   };
 
   useEffect(() => {
@@ -119,7 +119,7 @@ const TelaAltProduto = (props: AltProdutoProps) => {
         <Text style={styles.texto_botao}>Alterar</Text>
       </Pressable>
       <Pressable
-        style={styles.botao}
+        style={styles.botao_vermelho}
         onPress={() => { props.navigation.goBack() }}>
         <Text style={styles.texto_botao}>Cancelar</Text>
       </Pressable>
