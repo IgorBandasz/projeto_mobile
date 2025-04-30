@@ -3,10 +3,8 @@ import {View, Text, Image, ScrollView, TextInput, Pressable, StyleSheet} from 'r
 import { styles } from '../styles/styles';
 
 const Exemplo1 = () => {
-  //variável
+  //constante
   const url = 'https://reactnative.dev/docs/assets/p_cat2.png';
-
-
 
   //O retorno da função é o que será construído em tela
   return (

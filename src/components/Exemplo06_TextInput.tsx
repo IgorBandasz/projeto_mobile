@@ -1,4 +1,4 @@
-import { StyleSheet, Text, TextInput, View } from "react-native";
+import { TextInput, View } from "react-native";
 import { styles } from "../styles/styles";
 
 const Exemplo06_TextInput = () => {

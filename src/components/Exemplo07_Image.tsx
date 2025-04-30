@@ -1,4 +1,4 @@
-import { Image, StyleSheet, Text, TextInput, View } from "react-native";
+import { Image, View } from "react-native";
 import { styles } from "../styles/styles";
 
 const Exemplo07_Image = () => {
