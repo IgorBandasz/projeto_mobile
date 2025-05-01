@@ -5,7 +5,8 @@ const Exemplo06_TextInput = () => {
     return (
         <View>
             <TextInput 
-                defaultValue="Digite aqui"
+                
+                placeholder="Informe blá blá"
                 style={styles.caixa_texto}/>
             <TextInput 
                 defaultValue="Informe seu nome"/>

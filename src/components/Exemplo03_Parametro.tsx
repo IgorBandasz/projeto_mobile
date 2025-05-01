@@ -4,7 +4,7 @@ import { styles } from '../styles/styles';
 
 type NomeProps = {
     nome:string;
-    sobrenome: string;
+    sobrenome?: string;
 }
 
 const NomePersonalizado = (props: NomeProps) => {
@@ -18,9 +18,8 @@ const NomePersonalizado = (props: NomeProps) => {
 const Batatinha = () => {
   return (
     <NomePersonalizado 
-       
-      sobrenome={'Bandasz'}
-      nome={'Igor'} />
+       nome='Igor'
+      />
   );
 }
 
