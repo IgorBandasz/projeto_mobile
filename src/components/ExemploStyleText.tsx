@@ -1,3 +1,4 @@
+import React from "react";
 import { StyleSheet, Text } from "react-native";
 
 const ExemploStylesText = () => {
@@ -8,8 +9,8 @@ const ExemploStylesText = () => {
             <Text style={styles_local.texto3}>Texto 3</Text>
             <Text style={styles_local.texto4}>Texto 4</Text>
             <Text style={styles_local.texto5}>Texto 5</Text>
-            <Text style={[styles_local.negrito, styles_local.titulo]}>Texto 6</Text>
-            <Text style={[styles_local.texto1, styles_local.texto5, ]}>Texto 7</Text>
+            <Text style={[styles_local.titulo, styles_local.negrito]}>Texto 6</Text>
+            <Text style={[styles_local.texto5, styles_local.texto1]}>Texto 7</Text>
         </>
     );
 }
@@ -17,33 +18,33 @@ const ExemploStylesText = () => {
 export default ExemploStylesText;
 
 const styles_local = StyleSheet.create({
-    texto1:{
+    texto1: {
         //cor
         color: 'blue'
     },
-    texto2:{
+    texto2: {
         //cor
         color: '#00BFFF'
     },
-    texto3:{
+    texto3: {
         //espessura do texto
-        fontWeight: 'condensed',
+        fontWeight: '900',
         //tamanho da fonte
         fontSize: 50,
     },
-    texto4:{
+    texto4: {
         //estilo da fonte
         fontStyle: 'italic'
     },
-    texto5:{
+    texto5: {
         //cor
         color: 'black',
         //criando sombra para o texto
-        textShadowOffset: {width: -20, height: 5},
+        textShadowOffset: { width: -20, height: 5 },
         //cor da sombra do texto
-        textShadowColor: 'yellow',
+        textShadowColor: 'red',
         //embaçar a sombra
-        textShadowRadius: 10,
+        textShadowRadius: 20,
         //tamanho da fonte do texto
         fontSize: 100,
     },
@@ -54,5 +55,6 @@ const styles_local = StyleSheet.create({
     titulo: {
         //tamanho da fonte do texto
         fontSize: 30,
+        fontWeight: '100',
     },
 });
