@@ -19,6 +19,7 @@ const Batatinha = () => {
   return (
     <NomePersonalizado 
        nome='Igor'
+        sobrenome=''
       />
   );
 }
