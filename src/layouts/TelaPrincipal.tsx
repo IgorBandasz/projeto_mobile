@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Alert, Pressable, StyleSheet, Text, View } from 'react-native';
 import { PrincipalProps } from '../navigation/HomeNavigator';
 import { styles } from '../styles/styles';
 import Exemplo01 from '../components/Exemplo01';
 import Exemplo06_TextInput from '../components/Exemplo06_TextInput';
 import Exemplo07_Image from '../components/Exemplo07_Image';
 import TelaEx1 from './TelaEx1';
-import ExemploStylesText from '../components/ExemploStyleText';
-import ExemploStylesView from '../components/ExemploStyleView';
+import ExemploStylesText from '../components/Exemplo11_StyleText';
+import ExemploStylesView from '../components/Exemplo12_StyleView';
 import Exemplo08_Switch from '../components/Exemplo08_Switch';
+import Exemplo13_State from '../components/Exemplo13_State';
+import Exemplo14_ParametroFunction from '../components/Exemplo14_ParametroFunction';
+import ResultadoFinal from '../components/ResultadoFinal';
 
 //Componente chamado TelaPrincipal que recebe 
 //PrincipalProps 
@@ -19,7 +22,10 @@ const TelaPrincipal = (props: PrincipalProps) => {
   return (
     <View
       style={[styles.tela]}>
-      <Exemplo08_Switch />
+      <ResultadoFinal 
+        nome='igor' 
+        nota1={7}
+        nota2={5} />
     </View>
   );
 }

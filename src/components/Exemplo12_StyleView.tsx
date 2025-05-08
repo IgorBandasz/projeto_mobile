@@ -1,6 +1,6 @@
 import { StyleSheet, View } from "react-native";
 
-const ExemploStylesView = () => {
+const Exemplo12_StyleView = () => {
     return (
         <>
             <View style={styles_local.container_fixo}>
@@ -23,7 +23,7 @@ const ExemploStylesView = () => {
     );
 }
 
-export default ExemploStylesView;
+export default Exemplo12_StyleView;
 
 const styles_local = StyleSheet.create({
     container_fixo: {

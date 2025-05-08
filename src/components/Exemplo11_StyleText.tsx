@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Text } from "react-native";
 
-const ExemploStylesText = () => {
+const Exemplo11_StyleText = () => {
     return (
         <>
             <Text style={styles_local.texto1}>Texto 1</Text>
@@ -15,7 +15,7 @@ const ExemploStylesText = () => {
     );
 }
 
-export default ExemploStylesText;
+export default Exemplo11_StyleText;
 
 const styles_local = StyleSheet.create({
     texto1: {
