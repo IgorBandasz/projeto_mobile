@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Produto } from "../types/Produto";
 
 type ExemploProps={
-  onClick: () => void; //O parâmetro é uma função sem parâmetros e que o retorno é void
+  onClick?: () => void; //O parâmetro é uma função sem parâmetros e que o retorno é void
 }
 
 const Exemplo14_ParametroFunction = (props: ExemploProps) => {

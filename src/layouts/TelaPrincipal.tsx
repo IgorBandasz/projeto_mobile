@@ -12,20 +12,22 @@ import Exemplo08_Switch from '../components/Exemplo08_Switch';
 import Exemplo13_State from '../components/Exemplo13_State';
 import Exemplo14_ParametroFunction from '../components/Exemplo14_ParametroFunction';
 import ResultadoFinal from '../components/ResultadoFinal';
+import Exemplo15_ConstrucaoCondicao from '../components/Exemplo15_ConstrucaoCondicao';
+import CampoDeTexto from '../components/CampoDeTexto';
 
 //Componente chamado TelaPrincipal que recebe 
 //PrincipalProps 
 //como parametro e constrói uma View com o componente 
 //HelloWorld e Exemplo1 dentro
 const TelaPrincipal = (props: PrincipalProps) => {
+  function funcaoClick(texto: string){
+    Alert.alert("mensagem:" + texto)
+  }
 
   return (
     <View
       style={[styles.tela]}>
-      <ResultadoFinal 
-        nome='igor' 
-        nota1={7}
-        nota2={5} />
+      <Exemplo15_ConstrucaoCondicao/>
     </View>
   );
 }
