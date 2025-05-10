@@ -5,22 +5,13 @@ type ListaSimplesProps = {
     listaPessoas: string[]
 }
 
-const ListaSimples = (props: ListaSimplesProps) => {  
-
+const Exemplo16_ListaSimples = (props: ListaSimplesProps) => {  
     return (
         <FlatList
             data={props.listaPessoas}
-            renderItem={({ item }) => {
-                return (
-                    <Text style={styles.item}>
-                        Nome: {item}
-                    </Text>
-                )
-            }}
-
+            renderItem={(itemLista) => { return <ItemSimples nome={itemLista.item}/>}}
         />
     )
-
 }
 
 type ItemProps={
@@ -37,7 +28,7 @@ const ItemSimples = (props: ItemProps) => {
     );
 }
 
-export default ListaSimples;
+export default Exemplo16_ListaSimples;
 
 const styles = StyleSheet.create({
     item: {
