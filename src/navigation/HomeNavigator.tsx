@@ -1,10 +1,11 @@
 import { NativeStackScreenProps, createNativeStackNavigator } from "@react-navigation/native-stack";
 import TelaPrincipal from "../layouts/TelaPrincipal";
+import TelaNova from "../layouts/TelaNova";
 
 //Define quais as telas e os parâmetros de cada tela
 type RootStackParamList = {
   TelaPrincipal: undefined; 
-  
+  TelaNova: undefined;
 };
 
 //Cria a Stack (tipo de navegação onde as telas estão em uma "pilha")
@@ -21,6 +22,7 @@ const HomeNavigator = () => {
 
       {/* define uma te la dando um nome(igual ao RootStackParamList) e qual o componente será carregado */}
       <Stack.Screen name="TelaPrincipal" component={TelaPrincipal} />
+      <Stack.Screen name="TelaNova" component={TelaNova} />
 
     </Stack.Navigator>
   );
@@ -31,11 +33,15 @@ const HomeNavigator = () => {
 type PrincipalProps = NativeStackScreenProps<RootStackParamList,
   'TelaPrincipal'>;
 
+type NovaProps = NativeStackScreenProps<RootStackParamList,
+  'TelaNova'>;  
+
 
 //exporta o navegador da pilha para ficar visível para outros arquivos    
 export default HomeNavigator;
 
 //exporta os tipos de dados para ficar visível para outros arquivos
 export type {
-  PrincipalProps
+  PrincipalProps,
+  NovaProps
 };

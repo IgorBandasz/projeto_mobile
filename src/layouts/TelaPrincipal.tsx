@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Alert, Pressable, StyleSheet, Text, View } from 'react-native';
+import { Alert, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import { PrincipalProps } from '../navigation/HomeNavigator';
 import { styles } from '../styles/styles';
 import Exemplo16_ListaSimples from '../components/Exemplo16_ListaSimples';
@@ -17,14 +17,14 @@ const TelaPrincipal = (props: PrincipalProps) => {
   return (
     <View
       style={[styles.tela]}>
+        <Text style={styles.titulo1}>Tela Principal</Text>
       <Pressable
-        onPress={()=>{setListaPessoas((antigaLista) => [...antigaLista, 'Ana']);}}>
+        onPress={()=>{props.navigation.navigate('TelaNova')}}>
         <Text>
-          Botão
+          Botão navegar
         </Text>
       </Pressable>
-      <Exemplo16_ListaSimples
-        listaPessoas={listaPessoas} />
+      
     </View>
   );
 }
