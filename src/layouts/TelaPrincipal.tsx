@@ -19,9 +19,16 @@ const TelaPrincipal = (props: PrincipalProps) => {
       style={[styles.tela]}>
         <Text style={styles.titulo1}>Tela Principal</Text>
       <Pressable
-        onPress={()=>{props.navigation.navigate('TelaNova')}}>
+        onPress={()=>{props.navigation.navigate('TelaCadProduto')}}>
         <Text>
           Botão navegar
+        </Text>
+      </Pressable>
+
+      <Pressable
+        onPress={()=>{props.navigation.navigate('TelaConsProduto')}}>
+        <Text>
+          Consulta produtos
         </Text>
       </Pressable>
       

@@ -7,7 +7,8 @@ import { NovaProps } from '../navigation/HomeNavigator';
 const TelaNova = (props: NovaProps) => {
     return (
         <>
-            <Text style={styles.titulo1}> SuaMensagem! </Text>
+            <Text style={styles.titulo1}> Sua Idade {props.route.params.idade} </Text>
+            <Text style={styles.titulo1}> Seu Nome {props.route.params.nome} </Text>
             <Pressable
                 onPress={() => { props.navigation.navigate('TelaPrincipal')}}>
                 <Text>
