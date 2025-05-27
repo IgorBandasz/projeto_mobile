@@ -49,7 +49,7 @@ const TelaConsProduto = (props: ConsProdutoProps) => {
   }
 
   function alterarNota(id: string) {
-   // props.navigation.navigate("TelaAltProduto", { id: id })
+    props.navigation.navigate("TelaAltProduto", { id: id })
   }
 
   return (
