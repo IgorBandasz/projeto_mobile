@@ -13,7 +13,7 @@ Para baixar os pacotes do projeto execute o comando no terminal aberto na pasta 
 ### Passo 2:
 Configure o Firebase seguindo o link:
     [Manual de Configuração Firebase](https://docs.google.com/document/d/1uz7PVRKDwvTCM5DLdZGk_3sLcyuAtZpf-DMVKXspByo/edit?usp=sharing)
-> O Firebase é um serviço de back-end online que disponibiliza disversos recursos para a aplicação, sendo o principal o banco de dados não relacional
+> O Firebase é um serviço de back-end online que disponibiliza diversos recursos para a aplicação, sendo o principal o banco de dados não relacional
 
 ### Passo 3:
 Para rodar o projeto o comando no terminal:
